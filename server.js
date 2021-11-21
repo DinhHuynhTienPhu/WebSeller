@@ -34,6 +34,13 @@ app.use("/order", orderRouter);
 app.use("/myAccount", myAccountRouter);
 app.use("/other", otherRouter);
 
+//catch 404 error
+app.use(function (req, res, next) {
+  var err = new Error();
+  err.status = 404;
+  next(err);
+});
+
 app.get("/", (rq, res) => {
   res.redirect("/start");
 });
@@ -41,6 +48,14 @@ app.get("/index", (rq, res) => {
   res.redirect("/start");
 });
 
+//handle 404 error
+app.use(function (err, req, res, next) {
+  res.render("404.hbs"), { url: req.url };
+});
+
+//create port
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => console.log("server is running on local host " + PORT + " ^_^ "));
+var listener = app.listen(PORT, function () {
+  console.log("Listening on port " + listener.address().port);
+});
