@@ -34,6 +34,12 @@ app.use("/order", orderRouter);
 app.use("/myAccount", myAccountRouter);
 app.use("/other", otherRouter);
 
+app.get("/", (rq, res) => {
+  res.redirect("/start");
+});
+app.get("/index", (rq, res) => {
+  res.redirect("/start");
+});
 //catch 404 error
 app.use(function (req, res, next) {
   var err = new Error();
@@ -41,12 +47,7 @@ app.use(function (req, res, next) {
   next(err);
 });
 
-app.get("/", (rq, res) => {
-  res.redirect("/start");
-});
-app.get("/index", (rq, res) => {
-  res.redirect("/start");
-});
+
 
 //handle 404 error
 app.use(function (err, req, res, next) {
