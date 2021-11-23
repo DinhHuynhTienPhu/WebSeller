@@ -74,18 +74,18 @@ Body Section
     <h3> Editation</h3>
     <hr class="soft" />
     <div class="well">
-      <form class="form-horizontal">
+      <form action="/product/product-add" method="post" enctype="multipart/form-data" class="form-horizontal">
         <h3>Add Product Detail</h3>
         <div class="control-group">
-          <label class="control-label" for="editProductName">Product name<sup>*</sup></label>
+          <label class="control-label" for="ProductName">Product name<sup>*</sup></label>
           <div class="controls">
-            <input type="text" id="editProductName" placeholder="Product Name" />
+            <input type="text" id="ProductName" placeholder="Product Name" name="ProductName"/>
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Product Type <sup>*</sup></label>
+          <label class="control-label" for="ProductType">Product Type <sup>*</sup></label>
           <div class="controls">
-            <select class="span1" name="days">
+            <select class="span1" name="ProductType">
               <option value="">-</option>
               <option value="1">Shoe</option>
               <option value="2">Clothe</option>
@@ -94,21 +94,21 @@ Body Section
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label" for="editPrice">Price <sup>*</sup></label>
+          <label class="control-label" for="Price">Price <sup>*</sup></label>
           <div class="controls">
-            <input type="text" id="editPrice" placeholder="Last Name" />
+            <input type="text" id="Price" placeholder="Price" name="Price"/>
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label" for="editProducer">Producer <sup>*</sup></label>
+          <label class="control-label" for="Producer">Producer <sup>*</sup></label>
           <div class="controls">
-            <input type="text" id="editProducer" placeholder="Producer" />
+            <input type="text" id="Producer" placeholder="Producer" name="Producer"/>
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label" for="editDescription"> Description<sup>*</sup></label>
+          <label class="control-label" for="Description"> Description<sup>*</sup></label>
           <div class="controls">
-            <input type="text" id="editDescription" placeholder="Description" />
+            <input type="text" id="Description" placeholder="Description" name="Description"/>
           </div>
         </div>
         <div class="control-group">
@@ -147,8 +147,12 @@ Body Section
           </div>
         </div>
         <div class="control-group">
+          <label for="inputProductImage">Product image</label>
+          <input name="inputProductImage" type="file">
+        </div>
+        <div class="control-group">
           <div class="controls">
-            <input type="submit" name="submitAddProduct" value="Add" class="exclusive shopBtn" />
+            <input type="submit" name="submitAddProduct" value="Submit" class="exclusive shopBtn" />
           </div>
       </form>
     </div>
@@ -184,7 +188,3 @@ Clients
     </div>
   </div>
 </section>
-
-      <!--
-Footer
--->

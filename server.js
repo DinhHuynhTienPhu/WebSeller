@@ -3,8 +3,42 @@ const morgan = require("morgan");
 const bodyparser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
-
+const multer = require("multer");
 const app = express();
+
+//set storage engine
+const storage = multer.diskStorage({
+  destination: "./public/assets/img/product",
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
+  },
+});
+
+// Init Upload
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 1000000 },
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+}).single("inputProductImage");
+
+//check file type
+function checkFileType(file, cb) {
+  // Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+  // Check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // Check mime
+  const mimetype = filetypes.test(file.mimetype);
+
+  if (mimetype && extname) {
+    return cb(null, true);
+  } else {
+    cb("Error: Images Only!");
+  }
+}
+
 //router
 const productRouter = require("./Components/product/productRouter");
 const startRouter = require("./Components/start/startRouter");
@@ -16,6 +50,7 @@ const otherRouter = require("./Components/other/otherRouter");
 
 dotenv.config({ path: "config.env" });
 app.use(morgan("tiny"));
+app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -40,14 +75,32 @@ app.get("/", (rq, res) => {
 app.get("/index", (rq, res) => {
   res.redirect("/start");
 });
+
+app.post("/product/product-add", (req, res) => {
+  upload(req, res, (err) => {
+    if (err) {
+      res.render("start", {
+        msg: err,
+      });
+    } else {
+      if (req.file == undefined) {
+        res.render("start", {
+          msg: "Error: No File Selected!",
+        });
+      } else {
+        console.log(req.body);
+        res.redirect("/product/product-list");
+      }
+    }
+  });
+});
+
 //catch 404 error
 app.use(function (req, res, next) {
   var err = new Error();
   err.status = 404;
   next(err);
 });
-
-
 
 //handle 404 error
 app.use(function (err, req, res, next) {
