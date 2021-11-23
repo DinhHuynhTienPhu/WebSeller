@@ -1,14 +1,16 @@
 var express = require("express");
 var router = express.Router();
-var product=require('../../server/model/Product')
-router.get("/product-list", function (req, res, next) {
+var product=require('../../server/model/product')
+router.get("/product-list", async (req, res)=> {
   console.log("querying");
-  product.find().then(data=>{ 
+  const data = await product.find({});
 
-    res.send(data);
-    console.log("data  result:");
+  try {
+    res.render('../Components/product/product-list',{data});
     console.log(data);
-  });
+  } catch (error) {
+    response.status(500).send(error);
+  }
 });
 router.get("/product-details-Seller", function (req, res, next) {
   res.render("../Components/product/product-details-Seller");
