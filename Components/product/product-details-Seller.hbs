@@ -70,14 +70,16 @@ Body Section
     <li><a href="../start">Home</a> <span class="divider">/</span></li>
     <li><a href="products">Items</a> <span class="divider">/</span></li>
     <li class="active">Preview</li>
-    </ul>	
+    </ul>
+	
+	{{#productDetail}}
 	<div class="well well-small">
 	<div class="row-fluid">
 			<div class="span5">
 			<div id="myCarousel" class="carousel slide cntr">
                 <div class="carousel-inner">
                   <div class="item active">
-                   <a href="#"> <img src="assets/img/a.jpg" alt="" style="width:100%"></a>
+                   <a href="#"> <img src="{{ProductImage}}" alt="" style="width:100%"></a>
                   </div>
                   <div class="item">
                      <a href="#"> <img src="assets/img/b.jpg" alt="" style="width:100%"></a>
@@ -91,12 +93,12 @@ Body Section
             </div>
 			</div>
 			<div class="span7">
-				<h3>Name of the Item [$140.00]</h3>
+				<h3>Name of the Item: {{ProductName}}</h3>
 				<hr class="soft"/>
 				
 				<form class="form-horizontal qtyFrm">
 				  <div class="control-group">
-					<label class="control-label"><span>$140.00</span></label>
+					<label class="control-label"><span>{{ProductPrice}}</span></label>
 					<div class="controls">
 					<input type="number" class="span6" placeholder="Qty.">
 					</div>
@@ -116,21 +118,14 @@ Body Section
 				  <div class="control-group">
 					<label class="control-label"><span>Materials</span></label>
 					<div class="controls">
-					  <select class="span11">
-						  <option>Material 1</option>
-						  <option>Material 2</option>
-						  <option>Material 3</option>
-						  <option>Material 4</option>
-						</select>
+					  <p>{{Material}}</p>
 					</div>
 				  </div>
 				  <h4>100 items in stock</h4>
-				  <p>Nowadays the lingerie industry is one of the most successful business spheres.
-				  Nowadays the lingerie industry is one of ...
 				  <p>
 				</form>
 			</div>
-			</div>
+		</div>
 				<hr class="softn clr"/>
 
 
@@ -150,14 +145,8 @@ Body Section
 				<tr class="techSpecRow"><td class="techSpecTD1">Brand:</td><td class="techSpecTD2">Shock Absorber</td></tr>
 				</tbody>
 				</table>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+				<p>{{Description}}</p>
+
 				<button type="submit" class="shopBtn"> <a href="product-edit">Edit</a></button>
 				<button type="submit" class="shopBtn">Lock the product</button>
 				
@@ -232,9 +221,10 @@ Body Section
 					</div>
 				</li>
 			</ul>
-
-</div>
-</div>
+			</div>
+			
+	{{/productDetail}}
+	</div>
 </div> <!-- Body wrapper -->
 <!-- 
 Clients 

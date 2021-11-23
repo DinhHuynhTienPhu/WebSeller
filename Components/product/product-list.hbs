@@ -15,33 +15,33 @@ how to match data:
 -->
 <h3>Product view <span> <a class="shopBtn" href="/product/product-add" title="Add product"> Add product </a></span></h3>
 <ul class="thumbnails">
-{{#each data}}
-  <li class="span4">
-    <div class="thumbnail">
-      <a href="/product/product-details-Seller" class="overlay"></a>
-      <a class="zoomTool" href="/product/product-details-Seller" title="Edit product"><span class="icon-search"></span> QUICK VIEW</a>
-      <a href="/product/product-details-Seller"><img src="{{ProductImage}}" style="width:276px !important; height:357px !important" /></a>
-      <div class="caption cntr">
-        <p>{{ProductName}}</p>
-        <p><strong> $ {{ProductPrice}}</strong></p>
-        <h4><a class="shopBtn" href="/product/product-edit" title="Edit product"> Edit product </a></h4>
-        <div class="actionList">
-          <a class="pull-left" href="#">Lock from Product List </a>
-          <a class="pull-left" href="#"> Delete from Product List </a>
+  {{#each data}}
+    <li class="span4">
+      <div class="thumbnail">
+        <a href="/product/product-details-Seller" class="overlay"></a>
+        <a class="zoomTool" href="/product/product-details-Seller/{{ProductID}}" title="Edit product"><span class="icon-search"></span> QUICK VIEW</a>
+        <a href="/product/product-details-Seller/{{ProductID}}"><img src="{{ProductImage}}" style="width:276px !important; height:357px !important" /></a>
+        <div class="caption cntr">
+          <p>{{ProductName}}</p>
+          <p><strong> $ {{ProductPrice}}</strong></p>
+          <h4><a class="shopBtn" href="/product/product-edit" title="Edit product"> Edit product </a></h4>
+          <div class="actionList">
+            <a class="pull-left" href="#">Lock from Product List </a>
+            <a class="pull-left" href="#"> Delete from Product List </a>
+          </div>
+          <br class="clr" />
         </div>
-        <br class="clr" />
       </div>
-    </div>
-  </li>
+    </li>
   {{/each}}
 </ul>
 <!-- PAGINATION BUTTON -->
 <ul>
-  <h3> 
+  <h3>
     <a href="/product/product-list?page=1"> Page 1</a>
-<a href="/product/product-list?page=2"> Page 2</a>
-<a href="/product/product-list?page=3"> Page 3</a>
-</h3>
+    <a href="/product/product-list?page=2"> Page 2</a>
+    <a href="/product/product-list?page=3"> Page 3</a>
+  </h3>
 </ul>
 <!-- 
 Clients 
