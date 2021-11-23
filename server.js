@@ -4,6 +4,7 @@ const bodyparser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
 const multer = require("multer");
+const mydb=require("./server/database/connection")
 const app = express();
 
 //set storage engine
@@ -39,6 +40,9 @@ function checkFileType(file, cb) {
   }
 }
 
+
+
+
 //router
 const productRouter = require("./Components/product/productRouter");
 const startRouter = require("./Components/start/startRouter");
@@ -68,6 +72,10 @@ app.use("/search", searchRouter);
 app.use("/order", orderRouter);
 app.use("/myAccount", myAccountRouter);
 app.use("/other", otherRouter);
+
+
+//connect db here
+mydb.connectDB();
 
 app.get("/", (rq, res) => {
   res.redirect("/start");

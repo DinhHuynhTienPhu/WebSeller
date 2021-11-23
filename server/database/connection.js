@@ -2,15 +2,18 @@ const mongoose = require('mongoose');
 const dotenv=require('dotenv');
 dotenv.config({path:'config.env'})
 const mongodbURL=process.env.mongodbURL
-const connectDB=async()=>{
-try{
-    const con = await  mongoose.connect(mongodbURL,{
-        useNewUrlParser : true,
+const MongoClient = require('mongodb').MongoClient;
+const url =process.env.mongodbURL
+const mongo = new MongoClient(url, { useNewUrlParser: true });
+const ProducList = {}   // Bien luu giu ket qua cua truy van
+var mydb;
 
-    })
-    console.log("mongodb connected"+con.connection.host)
-}
-catch(e){console.log(e);}
 
+exports.connectDB=()=>{
+mongo.connect((err, db) => {
+    if (err) throw err;
+    console.log("Kết nối thành công");
+    mydb=db;
+});
 }
-module.exports =connectDB
+exports.mydb =mydb
