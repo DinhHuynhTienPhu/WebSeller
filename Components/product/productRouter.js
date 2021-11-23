@@ -1,9 +1,14 @@
 var express = require("express");
 var router = express.Router();
-var service=require("./productService");
-
+var product=require('../../server/model/Product')
 router.get("/product-list", function (req, res, next) {
-  service.find(req,res).then(data=>{res.send(data)})
+  console.log("querying");
+  product.find().then(data=>{ 
+
+    res.send(data);
+    console.log("data  result:");
+    console.log(data);
+  });
 });
 router.get("/product-details-Seller", function (req, res, next) {
   res.render("../Components/product/product-details-Seller");
