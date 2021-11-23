@@ -75,7 +75,7 @@ app.use("/other", otherRouter);
 
 
 //connect db here
-mydb.connectDB();
+mydb();
 
 app.get("/", (rq, res) => {
   res.redirect("/start");

@@ -1,9 +1,16 @@
 var express = require("express");
 var router = express.Router();
-var service=require("./productService");
+var product=require('../../server/model/product')
+router.get("/product-list", async (req, res)=> {
+  console.log("querying");
+  const data = await product.find({});
 
-router.get("/product-list", function (req, res, next) {
-  service.find(req,res).then(data=>{res.send(data)})
+  try {
+    res.render('../Components/product/product-list',{data});
+    console.log(data);
+  } catch (error) {
+    response.status(500).send(error);
+  }
 });
 router.get("/product-details-Seller", function (req, res, next) {
   res.render("../Components/product/product-details-Seller");
