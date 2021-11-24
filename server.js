@@ -7,6 +7,17 @@ const multer = require("multer");
 const mydb=require("./server/database/connection")
 const app = express();
 
+
+//router
+const productRouter = require("./Components/product/productRouter");
+const startRouter = require("./Components/start/startRouter");
+const loginRouter = require("./Components/login/loginRouter");
+const searchRouter = require("./Components/search/searchRouter");
+const orderRouter = require("./Components/order/orderRouter");
+const myAccountRouter = require("./Components/myAccount/myAccountRouter");
+const otherRouter = require("./Components/other/otherRouter");
+
+
 //set storage engine
 const storage = multer.diskStorage({
   destination: "./public/assets/img/product",
@@ -43,14 +54,7 @@ function checkFileType(file, cb) {
 
 
 
-//router
-const productRouter = require("./Components/product/productRouter");
-const startRouter = require("./Components/start/startRouter");
-const loginRouter = require("./Components/login/loginRouter");
-const searchRouter = require("./Components/search/searchRouter");
-const orderRouter = require("./Components/order/orderRouter");
-const myAccountRouter = require("./Components/myAccount/myAccountRouter");
-const otherRouter = require("./Components/other/otherRouter");
+
 
 dotenv.config({ path: "config.env" });
 app.use(morgan("tiny"));
@@ -74,8 +78,7 @@ app.use("/myAccount", myAccountRouter);
 app.use("/other", otherRouter);
 
 
-//connect db here
-mydb();
+
 
 app.get("/", (rq, res) => {
   res.redirect("/start");
@@ -117,7 +120,12 @@ app.use(function (err, req, res, next) {
 
 //create port
 const PORT = process.env.PORT || 8080;
-
+(async ()=>{
+//connect db here
+await mydb();
 var listener = app.listen(PORT, function () {
   console.log("Listening on port " + listener.address().port);
 });
+})();
+
+
