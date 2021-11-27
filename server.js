@@ -7,7 +7,9 @@ const multer = require("multer");
 const mydb=require("./server/database/connection")
 const app = express();
 
-
+//parsing
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
 //router
 const productRouter = require("./Components/product/productRouter");
 const startRouter = require("./Components/start/startRouter");
@@ -16,6 +18,7 @@ const searchRouter = require("./Components/search/searchRouter");
 const orderRouter = require("./Components/order/orderRouter");
 const myAccountRouter = require("./Components/myAccount/myAccountRouter");
 const otherRouter = require("./Components/other/otherRouter");
+
 
 
 //set storage engine
@@ -55,11 +58,10 @@ function checkFileType(file, cb) {
 
 
 
-
 dotenv.config({ path: "config.env" });
-app.use(morgan("tiny"));
+//app.use(morgan("tiny"));
 app.use(express.json());
-app.use(bodyparser.urlencoded({ extended: true }));
+
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
@@ -89,18 +91,20 @@ app.get("/index", (rq, res) => {
 
 app.post("/product/product-add", (req, res) => {
   upload(req, res, (err) => {
+    //err
     if (err) {
-      res.render("start", {
-        msg: err,
+      res.render("error", {
+        error: err,
       });
+//if no err
     } else {
       if (req.file == undefined) {
-        res.render("start", {
-          msg: "Error: No File Selected!",
+        res.render("error", {
+          error: "Error: No File Selected!",
         });
       } else {
         console.log(req.body);
-        res.redirect("/product/product-list");
+        return true;
       }
     }
   });
@@ -129,3 +133,4 @@ var listener = app.listen(PORT, function () {
 })();
 
 
+module.exports.upload= upload;

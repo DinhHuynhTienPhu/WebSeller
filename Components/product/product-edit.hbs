@@ -1,38 +1,282 @@
+<!-- 
+Body Section 
+-->
+
+<!-- 
+Body Section 
+-->
+<div class="row">
+<div id="sidebar" class="span3">
+<div class="well well-small">
+	<ul class="nav nav-list">
+		<li><a href="products"><span class="icon-chevron-right"></span>Fashion</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Watches</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Fashion Jewelry</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Engagement & Wedding</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Men's Jewelry</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Vintage & Antique</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Loose Diamonds </a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>Loose Beads</a></li>
+		<li><a href="products"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
+		<li style="border:0"> &nbsp;</li>
+		<li> <a class="totalInCart" href="cart"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+	</ul>
+</div>
+
+			  <div class="well well-small alert alert-warning cntr">
+				  <h2>50% Discount</h2>
+				  <p> 
+					 only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
+				  </p>
+			  </div>
+			  <div class="well well-small" ><a href="#"><img src="assets/img/paypal.jpg" alt="payment method paypal"></a></div>
+			
+			<a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
+			<br>
+			<br>
+			<ul class="nav nav-list promowrapper">
+			<li>
+			  <div class="thumbnail">
+				<a class="zoomTool" href="/product/product-details-Seller" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
+				<div class="caption">
+				  <h4><a class="defaultBtn" href="/product/product-details-Seller">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				</div>
+			  </div>
+			</li>
+			<li style="border:0"> &nbsp;</li>
+			<li>
+			  <div class="thumbnail">
+				<a class="zoomTool" href="/product/product-details-Seller" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="assets/img/shopping-cart-template.png" alt="shopping cart template">
+				<div class="caption">
+				  <h4><a class="defaultBtn" href="/product/product-details-Seller">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				</div>
+			  </div>
+			</li>
+			<li style="border:0"> &nbsp;</li>
+			<li>
+			  <div class="thumbnail">
+				<a class="zoomTool" href="/product/product-details-Seller" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+				<img src="assets/img/bootstrap-template.png" alt="bootstrap template">
+				<div class="caption">
+				  <h4><a class="defaultBtn" href="/product/product-details-Seller">VIEW</a> <span class="pull-right">$22.00</span></h4>
+				</div>
+			  </div>
+			</li>
+		  </ul>
+
+	</div>
+	<div class="span9">
+    <ul class="breadcrumb">
+    <li><a href="../start">Home</a> <span class="divider">/</span></li>
+    <li><a href="products">Items</a> <span class="divider">/</span></li>
+    <li class="active">Preview</li>
+    </ul>
+	
+	{{#productDetail}}
+	<div class="well well-small">
+	<div class="row-fluid">
+			<div class="span5">
+			<div id="myCarousel" class="carousel slide cntr">
+                <div class="carousel-inner">
+                  <div class="item active">
+                   <a href="#"> <img src="{{ProductImage}}" alt="" style="width:100%"></a>
+                  </div>
+                  <div class="item">
+                     <a href="#"> <img src="assets/img/b.jpg" alt="" style="width:100%"></a>
+                  </div>
+                  <div class="item">
+                    <a href="#"> <img src="assets/img/e.jpg" alt="" style="width:100%"></a>
+                  </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>
+			</div>
+			<div class="span7">
+				<h3>Name of the Item: {{ProductName}}</h3>
+				<hr class="soft"/>
+				
+				<form class="form-horizontal qtyFrm">
+				  <div class="control-group">
+					<label class="control-label"><span>{{ProductPrice}}</span></label>
+					<div class="controls">
+					<input type="number" class="span6" placeholder="Qty.">
+					</div>
+				  </div>
+				
+				  <div class="control-group">
+					<label class="control-label"><span>Color</span></label>
+					<div class="controls">
+					  <select class="span11">
+						  <option>Red</option>
+						  <option>Purple</option>
+						  <option>Pink</option>
+						  <option>Red</option>
+						</select>
+					</div>
+				  </div>
+				  <div class="control-group">
+					<label class="control-label"><span>Materials</span></label>
+					<div class="controls">
+					  <p>{{Material}}</p>
+					</div>
+				  </div>
+				  <h4>100 items in stock</h4>
+				  <p>
+				</form>
+			</div>
+		</div>
+				<hr class="softn clr"/>
+
+
+            <ul id="productDetail" class="nav nav-tabs">
+              <li class="active"><a href="#home" data-toggle="tab">Product Details</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content tabWrapper">
+            <div class="tab-pane fade active in" id="home">
+			  <h4>Product Information</h4>
+                <table class="table table-striped">
+				<tbody>
+				<tr class="techSpecRow"><td class="techSpecTD1">Color:</td><td class="techSpecTD2">Black</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Style:</td><td class="techSpecTD2">Apparel,Sports</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Season:</td><td class="techSpecTD2">spring/summer</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Usage:</td><td class="techSpecTD2">fitness</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Sport:</td><td class="techSpecTD2">122855031</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Brand:</td><td class="techSpecTD2">Shock Absorber</td></tr>
+				</tbody>
+				</table>
+				<p>{{Description}}</p>
+
+				<button  class="shopBtn"> <a style="text-decoration: none;" href="/product/product-edit/{{ProductID}}">Edit</a></button>
+				<button  class="shopBtn">Lock the product</button>
+				
+			</div>
+			
+            </div>
+			<hr class="softn clr"/>
+			<h3>Product's comment</h3>
+			<form action="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="inputComment">Comment's content</label>
+					<div class="controls">
+					  <input type="text" id="inputComment" placeholder="Input your comment here..." />
+					  <input type="submit" value="Upload">
+					</div>
+				  </div>
+			</form>
+			<hr class="softn clr"/>
+			<ul class="commentList">
+				<li>
+					<div class="container">
+						<div class="row">
+							<div class="span3">
+								<img src="" alt="avatarpic">
+							</div>
+							<div class="span5">
+								<div class="rowUser">
+								<div class="bold">ABC</div>
+								</div>
+								<div class="content">
+									123456789
+								</div>
+								<div class="timeUpload">19h ago</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="container">
+						<div class="row">
+							<div class="span3">
+								<img src="" alt="avatarpic">
+							</div>
+							<div class="span5">
+								<div class="rowUser">
+								<div class="bold">ABC</div>
+								</div>
+								<div class="content">
+									123456789
+								</div>
+								<div class="timeUpload">19h ago</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="container">
+						<div class="row">
+							<div class="span3">
+								<img src="" alt="avatarpic">
+							</div>
+							<div class="span5">
+								<div class="rowUser">
+								<div class="bold">ABC</div>
+								</div>
+								<div class="content">
+									123456789
+								</div>
+								<div class="timeUpload">19h ago</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			</div>
+			
+	</div>
+</div> <!-- Body wrapper -->
+<!-- 
+Clients 
+-->
+<section class="our_client">
+	<hr class="soften"/>
+	<h4 class="title cntr"><span class="text">Manufactures</span></h4>
+	<hr class="soften"/>
+	<div class="row">
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/1.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/2.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/3.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/4.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/5.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/6.png"></a>
+		</div>
+	</div>
+</section>
+
+
+
 <div class="row">
   <div id="sidebar" class="span3">
     <div class="well well-small">
-      <ul class="nav nav-list">
-        <li><a href="products"><span class="icon-chevron-right"></span>Fashion</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Watches</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Fashion Jewelry</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Engagement & Wedding</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Men's Jewelry</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Vintage & Antique</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Loose Diamonds </a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>Loose Beads</a></li>
-        <li><a href="products"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
-        <li style="border:0"> &nbsp;</li>
-        <li> <a class="totalInCart" href="cart"><strong>Total Amount <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
-      </ul>
+
     </div>
 
     <div class="well well-small alert alert-warning cntr">
-      <h2>50% Discount</h2>
-      <p>
-        only valid for online order.
-        <br /><br /><a class="defaultBtn" href="#">Click here </a>
-      </p>
+ 
     </div>
     <div class="well well-small"><a href="#"><img src="assets/img/paypal.jpg" alt="payment method paypal" /></a></div>
 
-    <a class="shopBtn btn-block" href="#">Upcoming products <br /><small>Click to view</small></a>
-    <br />
+
     <br />
     <ul class="nav nav-list promowrapper">
       <li>
         <div class="thumbnail">
-          <a class="zoomTool" href="product_details" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+          <a class="zoomTool" href="product_details" title="add to cart"><span class="icon-search"></span> QUICK
+            VIEW</a>
           <img src="assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates" />
           <div class="caption">
             <h4><a class="defaultBtn" href="product_details">VIEW</a> <span class="pull-right">$22.00</span></h4>
@@ -42,7 +286,8 @@
       <li style="border:0"> &nbsp;</li>
       <li>
         <div class="thumbnail">
-          <a class="zoomTool" href="product_details" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+          <a class="zoomTool" href="product_details" title="add to cart"><span class="icon-search"></span> QUICK
+            VIEW</a>
           <img src="assets/img/shopping-cart-template.png" alt="shopping cart template" />
           <div class="caption">
             <h4><a class="defaultBtn" href="product_details">VIEW</a> <span class="pull-right">$22.00</span></h4>
@@ -52,7 +297,8 @@
       <li style="border:0"> &nbsp;</li>
       <li>
         <div class="thumbnail">
-          <a class="zoomTool" href="product_details" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+          <a class="zoomTool" href="product_details" title="add to cart"><span class="icon-search"></span> QUICK
+            VIEW</a>
           <img src="assets/img/bootstrap-template.png" alt="bootstrap template" />
           <div class="caption">
             <h4><a class="defaultBtn" href="product_details">VIEW</a> <span class="pull-right">$22.00</span></h4>
@@ -64,166 +310,68 @@
   </div>
   <div class="span9">
     <ul class="breadcrumb">
-      <li><a href="../start">Home</a> <span class="divider">/</span></li>
+      <li><a href="index">Home</a> <span class="divider">/</span></li>
       <li class="active">Editation</li>
     </ul>
     <h3> Editation</h3>
     <hr class="soft" />
     <div class="well">
-      <form class="form-horizontal">
-        <h3>Current Product Detail</h3>
+      <form action="/product/product-edit" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <input type="hidden"  name="ProductID" value="{{ProductID}}"> 
+        <h3>Chage Product Detail</h3>
         <div class="control-group">
-          <label class="control-label" for="outputProductName">Product name<sup>*</sup></label>
+          <label class="control-label" for="ProductName">Product name<sup>*</sup></label>
           <div class="controls">
-            <input type="text" id="outputProductName" placeholder="Product Name" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Product Type <sup>*</sup></label>
-          <div class="controls">
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">Shoe</option>
-              <option value="2">Clothe</option>
-              <option value="3">Watch</option>
-            </select>
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="outputPrice">Price <sup>*</sup></label>
-          <div class="controls">
-            <input type="text" id="outputPrice" placeholder="Last Name" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="outputProducer">Producer <sup>*</sup></label>
-          <div class="controls">
-            <input type="text" id="outputProducer" placeholder="Producer" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="inputDescription"> Description<sup>*</sup></label>
-          <div class="controls">
-            <input type="text" id="inputDescription" placeholder="Description" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Upload day <sup>*</sup></label>
-          <div class="controls">
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">1&nbsp;&nbsp;</option>
-              <option value="2">2&nbsp;&nbsp;</option>
-              <option value="3">3&nbsp;&nbsp;</option>
-              <option value="4">4&nbsp;&nbsp;</option>
-              <option value="5">5&nbsp;&nbsp;</option>
-              <option value="6">6&nbsp;&nbsp;</option>
-              <option value="7">7&nbsp;&nbsp;</option>
-            </select>
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">1&nbsp;&nbsp;</option>
-              <option value="2">2&nbsp;&nbsp;</option>
-              <option value="3">3&nbsp;&nbsp;</option>
-              <option value="4">4&nbsp;&nbsp;</option>
-              <option value="5">5&nbsp;&nbsp;</option>
-              <option value="6">6&nbsp;&nbsp;</option>
-              <option value="7">7&nbsp;&nbsp;</option>
-            </select>
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">1&nbsp;&nbsp;</option>
-              <option value="2">2&nbsp;&nbsp;</option>
-              <option value="3">3&nbsp;&nbsp;</option>
-              <option value="4">4&nbsp;&nbsp;</option>
-              <option value="5">5&nbsp;&nbsp;</option>
-              <option value="6">6&nbsp;&nbsp;</option>
-              <option value="7">7&nbsp;&nbsp;</option>
-            </select>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="well">
-      <form class="form-horizontal">
-        <h3>Current Product Detail</h3>
-        <div class="control-group">
-          <label class="control-label" for="editProductName">Product name<sup>*</sup></label>
-          <div class="controls">
-            <input type="text" id="editProductName" placeholder="Product Name" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Product Type <sup>*</sup></label>
-          <div class="controls">
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">Shoe</option>
-              <option value="2">Clothe</option>
-              <option value="3">Watch</option>
-            </select>
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="editPrice">Price <sup>*</sup></label>
-          <div class="controls">
-            <input type="text" id="editPrice" placeholder="Last Name" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="editProducer">Producer <sup>*</sup></label>
-          <div class="controls">
-            <input type="text" id="editProducer" placeholder="Producer" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="editDescription"> Description<sup>*</sup></label>
-          <div class="controls">
-            <input type="text" id="editDescription" placeholder="Description" />
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Upload day <sup>*</sup></label>
-          <div class="controls">
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">1&nbsp;&nbsp;</option>
-              <option value="2">2&nbsp;&nbsp;</option>
-              <option value="3">3&nbsp;&nbsp;</option>
-              <option value="4">4&nbsp;&nbsp;</option>
-              <option value="5">5&nbsp;&nbsp;</option>
-              <option value="6">6&nbsp;&nbsp;</option>
-              <option value="7">7&nbsp;&nbsp;</option>
-            </select>
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">1&nbsp;&nbsp;</option>
-              <option value="2">2&nbsp;&nbsp;</option>
-              <option value="3">3&nbsp;&nbsp;</option>
-              <option value="4">4&nbsp;&nbsp;</option>
-              <option value="5">5&nbsp;&nbsp;</option>
-              <option value="6">6&nbsp;&nbsp;</option>
-              <option value="7">7&nbsp;&nbsp;</option>
-            </select>
-            <select class="span1" name="days">
-              <option value="">-</option>
-              <option value="1">1&nbsp;&nbsp;</option>
-              <option value="2">2&nbsp;&nbsp;</option>
-              <option value="3">3&nbsp;&nbsp;</option>
-              <option value="4">4&nbsp;&nbsp;</option>
-              <option value="5">5&nbsp;&nbsp;</option>
-              <option value="6">6&nbsp;&nbsp;</option>
-              <option value="7">7&nbsp;&nbsp;</option>
-            </select>
-          </div>
-        </div>
-        <div class="control-group">
-          <div class="controls">
-            <input type="submit" name="submitAccount" value="Save" class="exclusive shopBtn" />
-          </div>
-      </form>
-    </div>
+            <input  type="text" id="ProductName" placeholder="Product Name" name="ProductName" value="{{ProductName}} " />
 
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="ProductType">Product Type <sup>*</sup></label>
+          <div class="controls">
+            <select class="span1" name="ProductType">
+              <option value="0">All</option>
+              <option value="1">Shoe</option>
+              <option value="2">Clothe</option>
+              <option value="3">Watch</option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="Price">Price <sup>*</sup></label>
+          <div class="controls">
+            <input type="text" id="Price" placeholder="Price" name="Price" value="{{ProductPrice}} " />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="Producer">Producer <sup>*</sup></label>
+          <div class="controls">
+            <input type="text" id="Producer" placeholder="Producer" name="Producer" value= "{{Producer}}"/>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="Description"> Description<sup>*</sup></label>
+          <div class="controls">
+            <input type="text" id="Description" placeholder="Description" name="Description" value="{{Description}}"/>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            {{!-- <label for="start">Start date:</label> --}}
+
+            {{!-- <input type="date" id="start" name="trip-start" value="2000-1-1" min="2000-01-01" max="2030-12-31"> --}}
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="inputProductImage">Product image</label>
+          <input name="inputProductImage" type="file">
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <input type="submit"  value="Submit" class="exclusive shopBtn" />
+          </div>
+      </form>
+    </div>
   </div>
 </div>
 <!-- 
@@ -254,4 +402,12 @@ Clients
       <a href="#"><img alt="" src="assets/img/6.png" /></a>
     </div>
   </div>
+  	{{/productDetail}}
+
 </section>
+<script>
+
+
+
+</script>>
+
