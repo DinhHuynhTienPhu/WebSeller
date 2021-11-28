@@ -18,18 +18,23 @@ exports.getCount= async()=>{
   return await (await product.find()).length;
 }
 exports.AddProduct = async (req,res) => {
+  console.log("server is adding product");
   let currentProductAmount=    ((await product.find()).length) +1;
   let thisProductID="Pro00"+currentProductAmount;
   let thisfilename="";
+  console.log("ProductID"+ thisProductID);
   server.upload(req, res, async (err) => {
     //err
     if (err) {
+      console.log("upload error");
       res.render("error", {
         error: err,
       });
 //if no err
     } else {
       if (req.file == undefined) {
+        console.log("upload error: no file to upload");
+
         res.render("error", {
           error: "Error: No File Selected!",
         });

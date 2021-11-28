@@ -26,8 +26,9 @@ exports.ShowDataDetail = async (req, res) => {
 }
 exports.AddProduct = async (req, res) => {
   console.log("adding product.....");
-  let productID= await service.AddProduct(req,res);
-  while(productID==null) {}
+  await service.AddProduct(req,res);
+  console.log("added product.....");
+
   //wait a little bit to mongoose update on server
   await sleep(200);
 
@@ -43,7 +44,7 @@ exports.ShowDataToEdit = async (req, res) => {
 }
 
 exports.SaveEdit = async (req, res) => {
- await service.SaveEdit(req,res);
+  service.SaveEdit(req,res);
 
   //wait a little bit to mongoose update on server
   await sleep(200);
