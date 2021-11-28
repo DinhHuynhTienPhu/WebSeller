@@ -133,4 +133,3 @@ var listener = app.listen(PORT, function () {
 })();
 
 
-module.exports.upload= upload;
