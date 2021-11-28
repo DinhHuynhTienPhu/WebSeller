@@ -1,4 +1,4 @@
-const service = require("./ProductService");
+const service = require("./productService");
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -9,6 +9,7 @@ exports.ShowList = async (req, res) => {
   if (isNaN(page)) page = 1;
   console.log("page= " + page);
   let data = await service.ShowList(page, itemPerPage)
+  console.log("return data " +data);
   res.render("../Components/product/product-list", {
     data: data
   });
