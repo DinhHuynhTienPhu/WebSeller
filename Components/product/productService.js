@@ -23,7 +23,7 @@ exports.AddProduct = async (req,res) => {
   let thisProductID="Pro00"+currentProductAmount;
   let thisfilename="";
   console.log("ProductID"+ thisProductID);
-  server.upload(req, res, async (err) => {
+  await server.upload(req, res, async (err) => {
     //err
     if (err) {
       console.log("upload error");
@@ -54,8 +54,8 @@ exports.AddProduct = async (req,res) => {
           { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
         );
         console.log("productID"+thisProductID);
-         p.save(p).then((data)=>{return  thisProductID})
-        
+        await  p.save(p);
+        return  thisProductID;
       }
     }
   });

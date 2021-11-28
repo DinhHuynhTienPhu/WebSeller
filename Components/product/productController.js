@@ -26,9 +26,9 @@ exports.ShowDataDetail = async (req, res) => {
 }
 exports.AddProduct = async (req, res) => {
   console.log("adding product.....");
-   await service.AddProduct(req,res).then ((productID)=>{
-    await sleep(200);
-   res.redirect("/product/product-details-Seller/"+productID)});
+  let productID= await service.AddProduct(req,res);
+  await sleep(200);
+   res.redirect("/product/product-details-Seller/"+productID);
 
   //wait a little bit to mongoose update on server
  
