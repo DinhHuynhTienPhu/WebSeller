@@ -1,5 +1,5 @@
 var express = require("express");
-var product = require("../../server/model/product");
+var product = require("../../server/model/Product");
 var server= require("../../server");
 
 function sleep(ms) {
