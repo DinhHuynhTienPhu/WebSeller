@@ -75,9 +75,24 @@ exports.AddProduct = async (req,res) => {
 //if no err
     } else {
       if (req.file == undefined) {
-        res.render("error", {
-          error: "Error: No File Selected!",
-        });
+          console.log("no file selected, it mean user want keep old img");
+          //after upload img, get img link and ypload database
+          let thisProductName=req.body.ProductName;
+          let thisProductType= req.body.ProductType;
+          let thisPrice= req.body.Price;
+          let thisProducer= req.body.Producer;
+          const thisDescription= req.body.Description;
+          const today = new Date();
+          var thisdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+          var thisProductID=req.body.ProductID;
+          const p =await product.findOne({ ProductID:thisProductID });
+          thisimgurl=p.ProductImage[0];
+           p.overwrite(
+            { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
+          );
+           p.save().then(async(data) =>{
+             console.log(thisProductID);
+            return await   thisProductID})
       } else {
         thisfilename= res.req.file.filename;
         console.log("upload img succes, file name="+ thisfilename);

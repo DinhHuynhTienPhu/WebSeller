@@ -44,9 +44,9 @@ exports.ShowDataToEdit = async (req, res) => {
 }
 
 exports.SaveEdit = async (req, res) => {
-   service.SaveEdit(req,res).then(
-       res.redirect("/product/product-details-Seller/"+req.body.ProductID)
-   );
+   await service.SaveEdit(req,res);
+   await sleep(1000);
+       res.redirect("/product/product-details-Seller/"+req.body.ProductID);
 }
 
 
