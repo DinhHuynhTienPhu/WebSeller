@@ -25,6 +25,7 @@ exports.ShowDataDetail = async (req, res) => {
     res.render("../Components/product/product-details-Seller", {  productDetail: productDetail});
 }
 exports.AddProduct = async (req, res) => {
+  console.log("adding product.....");
   let productID= await service.AddProduct(req,res);
   while(productID==null) {}
   //wait a little bit to mongoose update on server
