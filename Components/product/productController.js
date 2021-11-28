@@ -26,13 +26,13 @@ exports.ShowDataDetail = async (req, res) => {
 }
 exports.AddProduct = async (req, res) => {
   console.log("adding product.....");
-  await service.AddProduct(req,res);
-  console.log("added product.....");
+   await service.AddProduct(req,res).then ((productID)=>{
+    await sleep(200);
+   res.redirect("/product/product-details-Seller/"+productID)});
 
   //wait a little bit to mongoose update on server
-  await sleep(200);
+ 
 
-  res.redirect("/product/product-details-Seller/"+productID);
 }
 exports.ShowDataToEdit = async (req, res) => {
   let ItemID = "Pro0001";
