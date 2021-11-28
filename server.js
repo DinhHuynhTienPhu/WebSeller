@@ -127,9 +127,10 @@ const PORT = process.env.PORT || 8080;
 (async ()=>{
 //connect db here
 await mydb();
+
+})();
 var listener = app.listen(PORT, function () {
   console.log("Listening on port " + listener.address().port);
 });
-})();
 
-
+module.exports.upload= upload;
