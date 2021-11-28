@@ -53,8 +53,8 @@ exports.AddProduct = async (req,res) => {
         const p =new product(
           { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
         );
-        
-         p.save(p).then(data=>{return  thisProductID})
+        console.log("productID"+thisProductID);
+         p.save(p).then((data)=>{return  thisProductID})
         
       }
     }

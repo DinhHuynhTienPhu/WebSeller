@@ -44,11 +44,9 @@ exports.ShowDataToEdit = async (req, res) => {
 }
 
 exports.SaveEdit = async (req, res) => {
-  service.SaveEdit(req,res);
-
-  //wait a little bit to mongoose update on server
-  await sleep(200);
-  res.redirect("/product/product-details-Seller/"+req.body.ProductID);
+   service.SaveEdit(req,res).then(
+       res.redirect("/product/product-details-Seller/"+req.body.ProductID)
+   );
 }
 
 
