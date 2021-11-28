@@ -121,7 +121,7 @@ Body Section
 					  <p>{{Material}}</p>
 					</div>
 				  </div>
-				  <h4>100 items in stock</h4>
+				  <h4 id="h4-product-status">Status: {{ProductStatus}}</h4>
 				  <p>
 				</form>
 			</div>
@@ -147,9 +147,9 @@ Body Section
 				</table>
 				<p>{{Description}}</p>
 
-				<button  class="shopBtn"> <a style="text-decoration: none;" href="/product/product-edit/{{ProductID}}">Edit</a></button>
-				<button  class="shopBtn">Lock the product</button>
-				
+				<a style="text-decoration: none; color: white" href="/product/product-edit/{{ProductID}}"><button  class="shopBtn"> Edit</button></a>
+				<a style="text-decoration: none; color: white" href="/product/product-edit/lock/{{ProductID}}"><button  class="shopBtn"> Lock Product</button></a>
+
 			</div>
 			
             </div>
@@ -254,3 +254,25 @@ Clients
 		</div>
 	</div>
 </section>
+
+<script>
+$(document).ready(function(){ 
+	alert("Note: this product locked");
+
+	if(document.getElementById("h4-product-status").innerHTML== "Status: locked"){
+		alert("Note: this product locked");
+
+	}
+document.addEventListener('readystatechange', event => { 
+
+    // When window loaded ( external resources are loaded too- `css`,`src`, etc...) 
+    if (event.target.readyState === "complete") {
+        alert("hi 2");
+		if(document.getElementById("h4-product-status").innerHTML== "Status: locked"){
+		alert("Note: this product locked");
+
+	}
+    }
+});
+}
+</script>

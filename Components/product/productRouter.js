@@ -15,4 +15,7 @@ router.get("/product-add", function (req, res, next) {
 router.get("/product-edit/:ProductID", controller.ShowDataToEdit);
 router.post("/product-edit/", controller.SaveEdit);
 
+
+router.get("/product-edit/lock/:ProductID", controller.Lock);
+
 module.exports = router;

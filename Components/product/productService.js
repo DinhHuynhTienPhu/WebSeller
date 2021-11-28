@@ -61,11 +61,10 @@ exports.AddProduct = async (req,res) => {
 
  };
 
- exports.SaveEdit = async (req,res,productID) => {
-  let thisProductID="";
+ exports.SaveEdit = async (req,res) => {
 
   let thisfilename="";
-  server.upload(req, res, async (err) => {
+  await server.upload(req, res, async (err) => {
     //err
     if (err) {
       res.render("error", {
@@ -89,19 +88,22 @@ exports.AddProduct = async (req,res) => {
         const thisDescription= req.body.Description;
         const today = new Date();
         var thisdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        let thisProductID=req.body.ProductID;
+        var thisProductID=req.body.ProductID;
         const p =await product.findOne({ ProductID:thisProductID });
          p.overwrite(
           { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
         );
-         p.save().then(savedDoc =>{
+         p.save().then(async(data) =>{
            console.log(thisProductID);
-          productID= thisProductID;
-          return await  thisProductID})
-        
+          return await   thisProductID})
       }
     }
   });
-  await sleep(400);
-  return  await thisProductID;
+ };
+
+ exports.Lock = async (req,res) => {
+   console.log(req.params.ProductID);
+  const p = await product.findOne({ ProductID:req.params.ProductID });
+   p.ProductStatus="locked";
+  await p.save();
  };
