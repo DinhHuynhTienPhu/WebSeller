@@ -8,11 +8,7 @@ function sleep(ms) {
 
 exports.ShowList =  (pageNumber, nPerPage) => {
   //tham khảo pagination ở đây : https://docs.mongodb.com/manual/reference/method/cursor.skip/
-  return 1;
-    // product
-    // .find({})
-    // .skip(pageNumber > 0 ? (pageNumber - 1) * nPerPage : 0)
-    // .limit(nPerPage);
+  return product.find({});//.skip(pageNumber > 0 ? (pageNumber - 1) * nPerPage : 0).limit(nPerPage);
 };
 
 exports.ShowDataDetail =  (ItemID) => {
