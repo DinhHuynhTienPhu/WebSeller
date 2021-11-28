@@ -1,4 +1,4 @@
-const service = require("./productService");
+const service = require("./ProductService");
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -8,9 +8,9 @@ exports.ShowList = async (req, res) => {
   let page = req.query.page;; //mặc định là page 1, nếu như link là http://localhost:3003/product/product-list?page=2 thì là page 2
   if (isNaN(page)) page = 1;
   console.log("page= " + page);
-  //let data = await service.ShowList(page, itemPerPage)
+  let data = await service.ShowList(page, itemPerPage)
   res.render("../Components/product/product-list", {
-  //  data: data
+    data: data
   });
 }
 
