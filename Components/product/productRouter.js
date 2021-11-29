@@ -2,6 +2,9 @@ var express = require("express");
 var router = express.Router();
 var controller = require("./productController");
 
+router.get("/start",function (req, res) {res.redirect("/start")});
+
+
 router.get("/product-list",  controller.ShowList);
 router.get("/product-details-Seller/:ProductID", async (req, res) => {
   await controller.ShowDataDetail(req, res);
