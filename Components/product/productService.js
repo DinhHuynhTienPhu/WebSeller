@@ -96,7 +96,7 @@ exports.AddProduct = async (req,res) => {
       } else {
         thisfilename= res.req.file.filename;
         console.log("upload img succes, file name="+ thisfilename);
-        //after upload img, get img link and ypload database
+        //after upload img, get img link and upload database
         thisimgurl="/assets/img/product/"+thisfilename;
         let thisProductName=req.body.ProductName;
         let thisProductType= req.body.ProductType;
@@ -110,6 +110,7 @@ exports.AddProduct = async (req,res) => {
          p.overwrite(
           { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
         );
+        //save
          p.save().then(async(data) =>{
            console.log(thisProductID);
           return await   thisProductID})
