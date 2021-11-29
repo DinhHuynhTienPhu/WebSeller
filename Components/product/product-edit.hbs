@@ -140,12 +140,10 @@ Body Section
 			  <h4>Product Information</h4>
                 <table class="table table-striped">
 				<tbody>
-				<tr class="techSpecRow"><td class="techSpecTD1">Color:</td><td class="techSpecTD2">Black</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Style:</td><td class="techSpecTD2">Apparel,Sports</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Season:</td><td class="techSpecTD2">spring/summer</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Usage:</td><td class="techSpecTD2">fitness</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Sport:</td><td class="techSpecTD2">122855031</td></tr>
-				<tr class="techSpecRow"><td class="techSpecTD1">Brand:</td><td class="techSpecTD2">Shock Absorber</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Product Type:</td><td class="techSpecTD2">{{ProductType}}</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Origin:</td><td class="techSpecTD2">{{Origin}}</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Producer:</td><td class="techSpecTD2">{{Producer}}</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Warranty Time:</td><td class="techSpecTD2">{{WarrantyTime}}</td></tr>
 				</tbody>
 				</table>
 				<p>{{Description}}</p>
@@ -351,6 +349,33 @@ Clients
           <label class="control-label" for="Description"> Description<sup>*</sup></label>
           <div class="controls">
             <input type="text" id="Description" placeholder="Description" name="Description" value="{{Description}}"/>
+          </div>
+        </div>
+		<div class="control-group">
+          <label class="control-label" for="Origin"> Origin<sup>*</sup></label>
+          <div class="controls">
+            <input type="text" id="Origin" placeholder="Origin" name="Origin" />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="ProductStatus">Product Status <sup>*</sup></label>
+          <div class="controls">
+            <select class="span1" name="ProductStatus">
+              <option value="0">In stock</option>
+              <option value="1">Out of stock</option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="WarrantyTime"> Warranty Time<sup>*</sup></label>
+          <div class="controls">
+            <input type="text" id="WarrantyTime" placeholder="Warranty Time" name="WarrantyTime" />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="Material"> Material<sup>*</sup></label>
+          <div class="controls">
+            <input type="text" id="Material" placeholder="Material" name="Material" />
           </div>
         </div>
         <div class="control-group">
