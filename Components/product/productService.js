@@ -48,10 +48,14 @@ exports.AddProduct = async (req,res) => {
         let thisPrice= req.body.Price;
         let thisProducer= req.body.Producer;
         const thisDescription= req.body.Description;
+        let thisOrigin = req.body.Origin;
+        let thisProductStatus = req.body.ProductStatus;
+        let thisWarrantyTime = req.body.WarrantyTime;
+        let thisMaterial = req.body.Material;
         const today = new Date();
         var thisdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         const p =new product(
-          { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
+          { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: thisOrigin, Description: thisDescription, ProductStatus: thisProductStatus, WarrantyTime: thisWarrantyTime, Material: thisMaterial, ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
         );
         console.log("productID"+thisProductID);
         await  p.save(p);
@@ -82,13 +86,17 @@ exports.AddProduct = async (req,res) => {
           let thisPrice= req.body.Price;
           let thisProducer= req.body.Producer;
           const thisDescription= req.body.Description;
+          let thisOrigin = req.body.Origin;
+          let thisProductStatus = req.body.ProductStatus;
+          let thisWarrantyTime = req.body.WarrantyTime;
+          let thisMaterial = req.body.Material;
           const today = new Date();
           var thisdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
           var thisProductID=req.body.ProductID;
           const p =await product.findOne({ ProductID:thisProductID });
           thisimgurl=p.ProductImage[0];
            p.overwrite(
-            { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
+            { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: thisOrigin, Description: thisDescription, ProductStatus: thisProductStatus, WarrantyTime: thisWarrantyTime, Material: thisMaterial, ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
           );
            p.save().then(async(data) =>{
              console.log(thisProductID);
@@ -103,12 +111,16 @@ exports.AddProduct = async (req,res) => {
         let thisPrice= req.body.Price;
         let thisProducer= req.body.Producer;
         const thisDescription= req.body.Description;
+        let thisOrigin = req.body.Origin;
+        let thisProductStatus = req.body.ProductStatus;
+        let thisWarrantyTime = req.body.WarrantyTime;
+        let thisMaterial = req.body.Material;
         const today = new Date();
         var thisdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var thisProductID=req.body.ProductID;
         const p =await product.findOne({ ProductID:thisProductID });
          p.overwrite(
-          { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: "VietNam", Description: thisDescription, ProductStatus: "in stocks", WarrantyTime: "6 months", Material: ["cotton", "industrial fabric"], ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
+          { ProductID: thisProductID, ProductName: thisProductName, ProductType: thisProductType, ProductPrice: thisPrice, Producer: thisProducer, UploadDate: thisdate, Origin: thisOrigin, Description: thisDescription, ProductStatus: thisProductStatus, WarrantyTime: thisWarrantyTime, Material: thisMaterial, ProductImage:  [thisimgurl ], SellerID: "Sell0001" }
         );
          p.save().then(async(data) =>{
            console.log(thisProductID);
