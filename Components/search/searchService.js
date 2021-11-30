@@ -1,9 +1,5 @@
 var express = require("express");
 var product = require("../../server/model/Product");
-
-exports.ShowListByName = (ItemName) => {
-  return product.find({ ProductName: ItemName }).limit(9);
-};
 exports.ShowSearchingResult = (ItemName, ItemType, Producer, Origin, Price, OrderBy) => {
   let result = product.find({});
   if (ItemName !== "") {
@@ -85,4 +81,12 @@ exports.ShowSearchingResult = (ItemName, ItemType, Producer, Origin, Price, Orde
     }
   }
   return result;
+};
+exports.ShowList = (pageNumber, nPerPage, data) => {
+  let temp = data.map(({ ProductID }) => ProductID);
+  //tham khảo pagination ở đây : https://docs.mongodb.com/manual/reference/method/cursor.skip/
+  return product
+    .find({ ProductID: { $in: temp } })
+    .skip(pageNumber > 0 ? (pageNumber - 1) * nPerPage : 0)
+    .limit(nPerPage);
 };
