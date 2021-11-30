@@ -5,8 +5,6 @@ var controller = require("./searchController");
 router.get("/", function (req, res, next) {
   res.render("../Components/search/searching");
 });
-
-router.post("/searchingResult", async (req, res) => {
-  await controller.ShowSearchingResult(req, res);
-});
+router.get("/searchingResult", controller.ShowList);
+router.post("/searchingResult", controller.ShowSearchingResult);
 module.exports = router;
