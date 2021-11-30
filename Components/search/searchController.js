@@ -40,7 +40,13 @@ exports.ShowSearchingResult = async (req, res) => {
     console.log("Can't  get Order By");
   }
   data = await service.ShowSearchingResult(ItemName, ItemType, Producer, Origin, Price, OrderBy);
-  res.render("../Components/search/searching", { dataRender: data });
+  // res.render("../Components/search/searching", { dataRender: data });
+  //after get full result, now paginating
+  let itemPerPage = 2;
+  let { page } = req.query; //mặc định là page 1, nếu như link là http://localhost:3003/product/product-list?page=2 thì là page 2
+  if (isNaN(page)) page = 1;
+  let dataPage = await service.ShowList(page, itemPerPage, data);
+  res.render("../Components/search/searching", { dataRender: dataPage });
 };
 
 exports.ShowList = async (req, res) => {
